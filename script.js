@@ -14,12 +14,26 @@ class Product {
   
   class ShoppingCart {
     items = [];
+
+    // set cartItems(value){
+    //     this.items = value;
+    //     this.totalOutput.innerHTML = `<h2>Total: \$${1}</h2>`;
+    // }
+
+    // get totalAmount() { 
+    //     const sum = this.items.reduce(
+    //         (prevValue, curItem) => prevValue + curItem.price,
+    //         0
+    //     );
+    //     return sum;
+    // }
   
     addProduct(product) {
-      this.items.push(product);
-      this.totalOutput.innerHTML = `<h2>Total: \$${1}</h2>`;
+        this.items.push(product);
+        const totalPrice = this.items.reduce((sum, item) => sum + item.price, 0);
+        this.totalOutput.innerHTML = `<h2>Total: \$${totalPrice.toFixed(2)}</h2>`;
     }
-  
+
     render() {
       const cartEl = document.createElement('section');
       cartEl.innerHTML = `
@@ -29,6 +43,7 @@ class Product {
       cartEl.className = 'cart';
       this.totalOutput = cartEl.querySelector('h2');
       return cartEl;
+    
     }
   }
   
@@ -65,7 +80,7 @@ class Product {
     products = [
       new Product(
         'A Pillow',
-        'https://www.maxpixel.net/static/photo/2x/Soft-Pillow-Green-Decoration-Deco-Snuggle-1241878.jpg',
+        'https://rukminim2.flixcart.com/image/850/1000/xif0q/poster/x/t/q/medium-anime-poster-frame-yuji-itadori-jujutsu-kaisen-black-original-imagmgdx4gyhvxfs.jpeg?q=90&crop=false',
         'A soft pillow!',
         19.99
       ),
