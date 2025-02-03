@@ -115,8 +115,10 @@ class Product {
       const cartEl = this.cart.render();
       const productList = new ProductList();
       const prodListEl = productList.render();
-  
+      
+      //Cart Element Rendering in Shop
       renderHook.append(cartEl);
+      //Product List Rendering in Shop
       renderHook.append(prodListEl);
     }
   }
@@ -126,6 +128,7 @@ class Product {
   
     static init() {
       const shop = new Shop();
+    //The Shop Part is rendered here
       shop.render();
       this.cart = shop.cart;
     }
@@ -135,4 +138,5 @@ class Product {
     }
   }
   
+//   
   App.init();
